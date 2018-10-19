@@ -1,4 +1,5 @@
 require 'bundler/setup'
+require 'faker'
 Bundler.require
 
 ActiveRecord::Base.establish_connection(

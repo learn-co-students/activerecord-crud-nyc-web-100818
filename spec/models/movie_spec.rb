@@ -1,3 +1,5 @@
+require 'pry'
+
 describe 'Movie' do
   let(:attributes) {{
       title: "The Sting",
@@ -53,6 +55,7 @@ describe 'Movie' do
     it 'can be saved to the database' do
       movie = Movie.new(attributes)
       movie.save
+      # binding.pry
       expect(Movie.find_by(attributes)).to eq(movie)
     end
   end
@@ -79,7 +82,7 @@ describe 'Movie' do
       it 'can be created in a block' do
         args = { title: "The Room", release_date: 2003 }
         movie = can_be_created_in_a_block(args)
-
+        # binding.pry
         expect(movie.title).to eq("The Room")
         expect(movie.release_date).to eq(2003)
       end
@@ -133,11 +136,13 @@ describe 'Movie' do
 
       it 'can be updated using #update' do
         can_update_using_update_method
+        # binding.pry
         expect(Movie.find_by(title: "Wat, huh?")).to_not be_nil
       end
 
       it 'can update all records at once' do
         can_update_multiple_items_at_once
+        # binding.pry
         expect(Movie.where(title: "A Movie").size).to eq(5)
       end
     end
