@@ -118,7 +118,7 @@ describe 'Movie' do
       end
 
       it 'can use a where clause and be sorted' do
-        expect(can_find_using_where_clause_and_be_sorted.map{|m| m.title}).to eq(["Movie_4", "Movie_3"])
+        expect(can_find_using_where_clause_and_be_sorted.map{|m| m.title}).to eq(["Movie_3", "Movie_4"])
       end
     end
 
