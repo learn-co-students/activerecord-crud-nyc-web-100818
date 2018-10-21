@@ -29,14 +29,11 @@
     # If no arguments are passed, use default values:
     # title == "Home Alone"
     # release_date == 1990
-
-    Movie.create(args)
-
-    #   could not get the block to pass!!!!!!???
-    # Movie.create do |m|
-    #   m.title = "Home Alone"
-    #   m.release_date = 1990
-    # end
+    Movie.create do |m|
+      m.title = args[:title]
+      m.release_date = args[:release_date]
+      m.save
+    end
   end
 
   def can_get_the_first_item_in_the_database
